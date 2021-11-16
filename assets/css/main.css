@@ -80,6 +80,11 @@ body {
   margin-top: 10px;
 }
 
+.form-div input:focus {
+  outline: none;
+  border-color: #9fa8da;
+}
+
 .div-table {
   background-color: white;
   margin: 20px auto;
