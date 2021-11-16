@@ -11,14 +11,34 @@ form.addEventListener("submit", (e) => {
 
     let newUser = `
     <tr>
-        <th scope="col" class="text-center"><i class ="fa fa-close" ><i></th>
-        <th scope="col" class="text-center"><i class ="fa fa-edit" ><i></th>
-        <th scope="col" class="text-center">${nameValue}</th>
-        <th scope="col" class="text-center">${familyValue}</th>
-        <th scope="col" class="text-center">${emailValue}</th>
-        <th scope="col" class="text-center">${phoneValue}</th>
+        <th scope="col" class="text-center"><i class ="fa fa-close" onclick = "remove(event)"><i></th>
+        <th scope="col" class="text-center"><i class ="fa fa-edit" onclick = "edit(event)"><i></th>
+        <th scope="col" class="text-center name">${nameValue}</th>
+        <th scope="col" class="text-center family">${familyValue}</th>
+        <th scope="col" class="text-center email">${emailValue}</th>
+        <th scope="col" class="text-center phone">${phoneValue}</th>
     </tr>
     `
     tbody.insertAdjacentHTML("beforeend", newUser);
 
 });
+
+function remove(event) {
+    let tr = event.target.parentElement.parentElement;
+
+    tr.remove();
+};
+
+function edit(event) {
+    let tr = event.target.parentElement.parentElement;
+
+    let newName = prompt("Enter your number", tr.querySelector(".name").innerHTML);
+    let newFamily = prompt("Enter your family", tr.querySelector(".family").innerHTML);
+    let newEmail = prompt("Enter your email", tr.querySelector(".email").innerHTML);
+    let newPhone = prompt("Enter your phone", tr.querySelector(".phone").innerHTML);
+
+    tr.querySelector(".name").innerHTML = newName;
+    tr.querySelector(".family").innerHTML = newFamily;
+    tr.querySelector(".email").innerHTML = newEmail;
+    tr.querySelector(".phone").innerHTML = newPhone;
+}
